@@ -1,7 +1,7 @@
 const BASEURL = 'http://localhost:3001/api/media'
 
 export const addMedia = (media) => {
-    console.log("Sent: " + media + " to database");
+    console.log(`Sent ${media} to the database`);
     fetch(BASEURL, {
         method: 'POST',
         headers: {

@@ -44,9 +44,9 @@ export const parseUrl = (url) => {
     // "https://fmovies.to/series/family-guy-pmjnj/5-6" => "family-guy-pmjnj/5-6"
     const splitUrl = url.split("/")
     // "family-guy-pmjnj" => "family guy"
-    series  = removeId(splitUrl[4]),
-    season  = splitUrl[5].split("-")[0],
-    episode = splitUrl[5].split("-")[1]
+    series  = removeId(splitUrl[4]);
+    season  = splitUrl[5].split("-")[0];
+    episode = splitUrl[5].split("-")[1];
 }
 
 
