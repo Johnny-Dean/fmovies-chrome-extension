@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@types/chrome": "^0.0.181"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
