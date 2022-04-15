@@ -17,7 +17,7 @@ const handleClick = () => {
     );
 }
 
-export const getUrl = async () => {
+const getUrl = async () => {
     const queryOptions = {active: true, currentWindow: true};
     const [tab] = await chrome.tabs.query(queryOptions);
     return tab.url;
@@ -26,7 +26,7 @@ export const getUrl = async () => {
 // @INPUT URL example: https://fmovies.to/series/family-guy-pmjnj/5-6
 // Parse the URL by .split with delimiter '-' , which gives us an array  
 // [4] [5] are indexes for series and episode  
-export const parseUrl = (url) => {
+const parseUrl = (url) => {
     const removeId = (series) => {
         const arr = series.split("-");
         arr.pop();

@@ -6,10 +6,16 @@
     "action": {
         "default_popup": "popup.html"
     },
-    "background": {
-        "service_worker": "background.js"
-    },
+    "content_scripts": [
+        {
+            "matches": ["https://fmovies.to/*"],
+            "js": [
+                "content-script.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
     "permissions": [
-        "tabs"
+        "tabs", "activeTab"
     ]
 }
