@@ -1,7 +1,6 @@
 const BASEURL = 'http://localhost:3001/api/media'
 
 export const addMedia = (media) => {
-    console.log(media);
     fetch(BASEURL, {
         method: 'POST',
         headers: {
