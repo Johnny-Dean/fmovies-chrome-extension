@@ -1,3 +1,0 @@
-I made this extension to alert me when I had already watched a certain episode of a tv show on fmovies.to, I would've loved to try and inject CSS into the website however, fmovies.to autorefreshes and debug - modes
-when you try to inspect the page, which makes it rather hard to debug. 
-I also used this extension to see how typescript worked with express and node, as a mongoose and mongoDB refresher, and to explore how google chrome extensions work.
