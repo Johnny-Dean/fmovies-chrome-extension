@@ -12,9 +12,13 @@
             "js": [
                 "content-script.js"
             ],
-            "run_at": "document_start"
+            "run_at": "document_end"
         }
     ],
+    "background": {
+        "service_worker": "bg.js",
+        "type": "module"
+    },
     "permissions": [
         "tabs", "activeTab"
     ]

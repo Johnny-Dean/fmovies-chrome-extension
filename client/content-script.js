@@ -1,4 +1,3 @@
-getMedia = () => {
-    fetch('http://localhost:3001/api/media').then(res => console.log(res))
-}
-getMedia();
+chrome.runtime.sendMessage({type: "url", body: window.location.href.toString()}, response => {
+    alert(response)
+})

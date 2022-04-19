@@ -13,19 +13,24 @@ const Media_Db = require('./models/media')
 app.use(cors());
 app.use(express.json());
 
-// for now just push every thing watched as a series, episode, season but there is definitely a way
-// to combine these
-
-
-app.get('/api/media', (request: any, response: any) => {
-    Media_Db.find({}).then((result: Media[]) => {
-        response.json(result)
+// is it proper web practice to return a boolean here?
+app.get('/api/media/:series/:season/:ep', (request: any, response: any) => {
+    console.log(request.params);
+    Media_Db.find({series: request.params.series, season: request.params.season, ep: request.params.ep}).then((result: Media[]) => {
+        if (result.length !== 0){
+            return response.json({watched: true, amount: result.length});
+        }
+        else {
+            return response.json({watched: false, amount: 0})
+        }
     })
 })
 
+// ask sif if the parsing should be handled by the front end or back end and why, it
+// seems that it could be handled by front end because sending the url in a body request is poor practice
+
 app.post('/api/media', (request: any, response: any) => {
     const body = request.body;
-    console.log(body);
     if (body === undefined) {
         return response(400).json({error: 'content missing'})
     }
