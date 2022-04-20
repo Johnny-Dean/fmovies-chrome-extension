@@ -15,7 +15,6 @@ app.use(express.json());
 
 // is it proper web practice to return a boolean here?
 app.get('/api/media/:series/:season/:ep', (request: any, response: any) => {
-    console.log(request.params);
     Media_Db.find({series: request.params.series, season: request.params.season, ep: request.params.ep}).then((result: Media[]) => {
         if (result.length !== 0){
             return response.json({watched: true, amount: result.length});
@@ -39,7 +38,7 @@ app.post('/api/media', (request: any, response: any) => {
         season:  body.season,
         episode: body.episode
     })
-
+    
     media.save().then((savedMedia: Media) => response.json(savedMedia))
 })
 

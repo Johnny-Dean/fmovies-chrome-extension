@@ -9,7 +9,7 @@ export const addMedia = (media) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({url: media})
+        body: JSON.stringify(media)
     })
 }
 

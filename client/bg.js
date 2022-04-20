@@ -23,17 +23,13 @@ const parseUrl = (url) => {
     }
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
     const media = parseUrl(request.body);
-    
-    fetch(`http://localhost:3001/api/media/${media.series}/${media.season}/${media.episode}`).then(res => {
-        res.json().then(parsedRes => {
-            if (parsedRes.watched) {
-                sendResponse(`we have watched this ${parsedRes.amount} times`);  
-            }
-        });
+    fetch(`http://localhost:3001/api/media/${media.series}/${media.season}/${media.episode}`).then(result => {
+        result.json().then(parsedResult => {
+            if (parsedResult.watched) sendResponse(`You have watched this ${parsedResult.amount} time(s)`);
+        })
     })
+    // keeps the connection open for message
     return true;
-    
 })
-
